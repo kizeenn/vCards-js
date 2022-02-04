@@ -113,225 +113,226 @@ var vCard = (function () {
      * Public interface for vCard
      ********************************************************************************/
     return {
+      /**
+       * Specifies a value that represents a persistent, globally unique identifier associated with the vCard
+       * @type {String}
+       */
+      uid: "",
 
-        /**
-         * Specifies a value that represents a persistent, globally unique identifier associated with the vCard
-         * @type {String}
-         */
-        uid: '',
+      /**
+       * Date of birth
+       * @type {Datetime}
+       */
+      birthday: "",
 
-        /**
-         * Date of birth
-         * @type {Datetime}
-         */
-        birthday: '',
+      /**
+       * Cell phone number
+       * @type {String}
+       */
+      cellPhone: "",
 
-        /**
-         * Cell phone number
-         * @type {String}
-         */
-        cellPhone: '',
+      /**
+       * Other cell phone number or pager
+       * @type {String}
+       */
+      pagerPhone: "",
 
-        /**
-         * Other cell phone number or pager
-         * @type {String}
-         */
-        pagerPhone: '',
+      /**
+       * The address for private electronic mail communication
+       * @type {String}
+       */
+      email: "",
 
-        /**
-         * The address for private electronic mail communication
-         * @type {String}
-         */
-        email: '',
+      /**
+       * The address for work-related electronic mail communication
+       * @type {String}
+       */
+      workEmail: "",
 
-        /**
-         * The address for work-related electronic mail communication
-         * @type {String}
-         */
-        workEmail: '',
+      /**
+       * First name
+       * @type {String}
+       */
+      firstName: "",
 
-        /**
-         * First name
-         * @type {String}
-         */
-        firstName: '',
+      /**
+       * Formatted name string associated with the vCard object (will automatically populate if not set)
+       * @type {String}
+       */
+      formattedName: "",
 
-        /**
-         * Formatted name string associated with the vCard object (will automatically populate if not set)
-         * @type {String}
-         */
-        formattedName: '',
+      /**
+       * Gender.
+       * @type {String} Must be M or F for Male or Female
+       */
+      gender: "",
 
-        /**
-         * Gender.
-         * @type {String} Must be M or F for Male or Female
-         */
-        gender: '',
+      /**
+       * Home mailing address
+       * @type {object}
+       */
+      homeAddress: getMailingAddress(),
 
-        /**
-         * Home mailing address
-         * @type {object}
-         */
-        homeAddress: getMailingAddress(),
+      /**
+       * Home phone
+       * @type {String}
+       */
+      homePhone: "",
 
-        /**
-         * Home phone
-         * @type {String}
-         */
-        homePhone: '',
+      /**
+       * Home facsimile
+       * @type {String}
+       */
+      homeFax: "",
 
-        /**
-         * Home facsimile
-         * @type {String}
-         */
-        homeFax: '',
+      /**
+       * Last name
+       * @type {String}
+       */
+      lastName: "",
 
-        /**
-         * Last name
-         * @type {String}
-         */
-        lastName: '',
+      /**
+       * Logo
+       * @type {object}
+       */
+      logo: getPhoto(),
 
-        /**
-         * Logo
-         * @type {object}
-         */
-        logo: getPhoto(),
+      /**
+       * Middle name
+       * @type {String}
+       */
+      middleName: "",
 
-        /**
-         * Middle name
-         * @type {String}
-         */
-        middleName: '',
+      /**
+       * Prefix for individual's name
+       * @type {String}
+       */
+      namePrefix: "",
 
-        /**
-         * Prefix for individual's name
-         * @type {String}
-         */
-        namePrefix: '',
+      /**
+       * Suffix for individual's name
+       * @type {String}
+       */
+      nameSuffix: "",
 
-        /**
-         * Suffix for individual's name
-         * @type {String}
-         */
-        nameSuffix: '',
+      /**
+       * Nickname of individual
+       * @type {String}
+       */
+      nickname: "",
 
-        /**
-         * Nickname of individual
-         * @type {String}
-         */
-        nickname: '',
+      /**
+       * Specifies supplemental information or a comment that is associated with the vCard
+       * @type {String}
+       */
+      note: "",
 
-        /**
-         * Specifies supplemental information or a comment that is associated with the vCard
-         * @type {String}
-         */
-        note: '',
+      /**
+       * The name and optionally the unit(s) of the organization associated with the vCard object
+       * @type {String}
+       */
+      organization: "",
 
-        /**
-         * The name and optionally the unit(s) of the organization associated with the vCard object
-         * @type {String}
-         */
-        organization: '',
+      /**
+       * Individual's photo
+       * @type {object}
+       */
+      photo: getPhoto(),
 
-        /**
-         * Individual's photo
-         * @type {object}
-         */
-        photo: getPhoto(),
+      /**
+       * The role, occupation, or business category of the vCard object within an organization
+       * @type {String}
+       */
+      role: "",
 
-        /**
-         * The role, occupation, or business category of the vCard object within an organization
-         * @type {String}
-         */
-        role: '',
+      /**
+       * Social URLs attached to the vCard object (ex: Facebook, Twitter, LinkedIn)
+       * @type {String}
+       */
+      socialUrls: getSocialUrls(),
 
-        /**
-         * Social URLs attached to the vCard object (ex: Facebook, Twitter, LinkedIn)
-         * @type {String}
-         */
-        socialUrls: getSocialUrls(),
+      /**
+       * A URL that can be used to get the latest version of this vCard
+       * @type {String}
+       */
+      source: "",
 
-        /**
-         * A URL that can be used to get the latest version of this vCard
-         * @type {String}
-         */
-        source: '',
+      /**
+       * Specifies the job title, functional position or function of the individual within an organization
+       * @type {String}
+       */
+      title: "",
 
-        /**
-         * Specifies the job title, functional position or function of the individual within an organization
-         * @type {String}
-         */
-        title: '',
+      /**
+       * URL pointing to a website that represents the person in some way
+       * @type {String}
+       */
+      urls: {},
 
-        /**
-         * URL pointing to a website that represents the person in some way
-         * @type {String}
-         */
-        url: '',
+      /**
+       * URL pointing to a website that represents the person's work in some way
+       * @type {String}
+       */
+      workUrl: "",
 
-        /**
-         * URL pointing to a website that represents the person's work in some way
-         * @type {String}
-         */
-        workUrl: '',
+      /**
+       * Work mailing address
+       * @type {object}
+       */
+      workAddress: getMailingAddress(),
 
-        /**
-         * Work mailing address
-         * @type {object}
-         */
-        workAddress: getMailingAddress(),
+      /**
+       * Work phone
+       * @type {String}
+       */
+      workPhone: "",
 
-        /**
-         * Work phone
-         * @type {String}
-         */
-        workPhone: '',
+      /**
+       * Work facsimile
+       * @type {String}
+       */
+      workFax: "",
 
-        /**
-         * Work facsimile
-         * @type {String}
-         */
-        workFax: '',
+      /**
+       * vCard version
+       * @type {String}
+       */
+      version: "3.0",
 
-        /**
-         * vCard version
-         * @type {String}
-         */
-        version: '3.0',
-
-        /**
-         * Get major version of the vCard format
-         * @return {integer}
-         */
-        getMajorVersion: function() {
-            var majorVersionString = this.version ? this.version.split('.')[0] : '4';
-            if (!isNaN(majorVersionString)) {
-                return parseInt(majorVersionString);
-            }
-            return 4;
-        },
-
-        /**
-         * Get formatted vCard
-         * @return {String} Formatted vCard in VCF format
-         */
-        getFormattedString: function() {
-            var vCardFormatter = require('./lib/vCardFormatter');
-            return vCardFormatter.getFormattedString(this);
-        },
-
-        /**
-         * Save formatted vCard to file
-         * @param  {String} filename
-         */
-        saveToFile: function(filename) {
-            var vCardFormatter = require('./lib/vCardFormatter');
-            var contents = vCardFormatter.getFormattedString(this);
-
-            var fs = require('fs');
-            fs.writeFileSync(filename, contents, { encoding: 'utf8' });
+      /**
+       * Get major version of the vCard format
+       * @return {integer}
+       */
+      getMajorVersion: function () {
+        var majorVersionString = this.version
+          ? this.version.split(".")[0]
+          : "4";
+        if (!isNaN(majorVersionString)) {
+          return parseInt(majorVersionString);
         }
+        return 4;
+      },
+
+      /**
+       * Get formatted vCard
+       * @return {String} Formatted vCard in VCF format
+       */
+      getFormattedString: function () {
+        var vCardFormatter = require("./lib/vCardFormatter");
+        return vCardFormatter.getFormattedString(this);
+      },
+
+      /**
+       * Save formatted vCard to file
+       * @param  {String} filename
+       */
+      saveToFile: function (filename) {
+        var vCardFormatter = require("./lib/vCardFormatter");
+        var contents = vCardFormatter.getFormattedString(this);
+
+        var fs = require("fs");
+        fs.writeFileSync(filename, contents, { encoding: "utf8" });
+      },
     };
 });
 
